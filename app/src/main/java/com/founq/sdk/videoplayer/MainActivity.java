@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
                 intent.setDataAndType(uri, "video/*");
                 startActivity(intent);
                 break;
+            case R.id.btn_video_view:
+                Intent intent1 = new Intent(MainActivity.this, VideoViewActivity.class);
+                startActivity(intent1);
+                break;
         }
     }
 }
