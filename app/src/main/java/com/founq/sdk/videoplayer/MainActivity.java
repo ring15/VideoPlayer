@@ -1,8 +1,12 @@
 package com.founq.sdk.videoplayer;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -12,6 +16,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        requestPermission();
+    }
+
+    private void requestPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0x01);
+        }
     }
 
     public void onClick(View view) {
@@ -30,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_surface_view:
                 Intent intent2 = new Intent(MainActivity.this, SurfaceMediaPlayerActivity.class);
                 startActivity(intent2);
+                break;
+            case R.id.btn_spannable:
+                Intent intent3 = new Intent(MainActivity.this, SpannableTextActivity.class);
+                startActivity(intent3);
                 break;
         }
     }

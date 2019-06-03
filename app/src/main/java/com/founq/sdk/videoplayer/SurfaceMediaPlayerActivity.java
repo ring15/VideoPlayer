@@ -8,6 +8,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 
+import java.io.File;
 import java.io.IOException;
 
 public class SurfaceMediaPlayerActivity extends AppCompatActivity {
@@ -16,12 +17,15 @@ public class SurfaceMediaPlayerActivity extends AppCompatActivity {
     private MediaPlayer mPlayer;
     private int intPositionWhenPause = -1;
 
+    private String path;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surface_media_player);
         mSurfaceView = findViewById(R.id.surface_view);
+        path = getIntent().getStringExtra("uri");
         initMediaPlayer();
     }
 
@@ -80,8 +84,11 @@ public class SurfaceMediaPlayerActivity extends AppCompatActivity {
 
     private void play() throws IOException {
         Uri uri = Uri.parse("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
+
+        File file = new File(path == null?"/storage/emulated/0/DCIM/Camera/VID_20190603_035936.mp4":path);
         mPlayer.reset();
-        mPlayer.setDataSource(this, uri);
+//        mPlayer.setDataSource(this, uri);
+        mPlayer.setDataSource(file.getPath());
         mPlayer.setDisplay(mSurfaceView.getHolder());
         mPlayer.prepare();
         mPlayer.start();
