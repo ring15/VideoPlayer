@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent1 = new Intent(MainActivity.this, VideoViewActivity.class);
                 startActivity(intent1);
                 break;
+            case R.id.btn_surface_view:
+                Intent intent2 = new Intent(MainActivity.this, SurfaceMediaPlayerActivity.class);
+                startActivity(intent2);
+                break;
         }
     }
 }
