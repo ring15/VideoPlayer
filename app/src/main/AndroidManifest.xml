@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ShowTextViewActivity"></activity>
+        <activity android:name=".ExoPlayerActivity"></activity>
+        <activity android:name=".ShowTextViewActivity" />
         <activity android:name=".SpannableTextActivity" />
         <activity android:name=".SurfaceMediaPlayerActivity" />
         <activity android:name=".VideoViewActivity" />

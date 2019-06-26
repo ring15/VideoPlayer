@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent3 = new Intent(MainActivity.this, SpannableTextActivity.class);
                 startActivity(intent3);
                 break;
+            case R.id.btn_exoplayer:
+                startActivity(new Intent(MainActivity.this, ExoPlayerActivity.class));
+                break;
         }
     }
 }
