@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_exoplayer:
                 startActivity(new Intent(MainActivity.this, ExoPlayerActivity.class));
                 break;
+            case R.id.btn_jiaozi:
+                startActivity(new Intent(MainActivity.this, JiaoZiVideoPlayerActivity.class));
         }
     }
 }

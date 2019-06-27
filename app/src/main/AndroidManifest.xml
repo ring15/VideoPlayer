@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ExoPlayerActivity"></activity>
+        <activity android:name=".JiaoZiVideoPlayerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ExoPlayerActivity" />
         <activity android:name=".ShowTextViewActivity" />
         <activity android:name=".SpannableTextActivity" />
         <activity android:name=".SurfaceMediaPlayerActivity" />
